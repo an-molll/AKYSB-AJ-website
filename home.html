@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aga Khan Youth and Sports Board Ali Jiwani</title>
+    <link rel="icon" type="image/png" href="images/logobg.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+    <style>
+        :root {
+            --primary-color: #e3fdce;
+            --secondary-color: #f6710c;
+            --accent-color: #c5e884;
+            --text-color: #078A8;
+            --bg-light: #fff7f2;
+        }
+
+        .navbar {
+            background: var(--primary-color);
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+  
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+            background-color: var(--secondary-color) !important;
+            transform: scale(1.05) !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .dropdown-menu {
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            font-weight: bold;
+            color: var(--text-color);
+            padding: 8px 12px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dropdown-item:hover {
+            background: var(--accent-color);
+            color: black;
+        }
+
+        body {
+            padding-top: 40px; /* Adjust padding to avoid overlap with fixed navbar */
+        }
+
+        /* Hide the shortened heading by default */
+.navbar-brand .short-text {
+    display: none;
+}
+
+/* Shorten the heading on smaller screens */
+@media (max-width: 768px) {
+    .navbar-brand .long-text {
+        display: none; /* Hide the full heading */
+    }
+    .navbar-brand .short-text {
+        display: inline; /* Show the shortened heading */
+    }
+}
+
+        /* Make the hamburger menu smaller */
+        .navbar-toggler-icon {
+            transform: scale(0.7); /* Reduce the size of the hamburger icon */
+        }
+/* FOOTER STYLING */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 30px 0; /* Slightly reduced padding */
+    text-align: center;
+    font-size: 0.9rem; /* Slightly smaller font size */
+    width: 100%;
+}
+
+.footer p {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer p:hover {
+    color: var(--accent-color);
+}
+
+/* Social Icons */
+.footer .social-icons {
+    margin-top: 10px;
+}
+
+.footer .social-icons a {
+    color: white;
+    margin: 0 12px;
+    font-size: 1.3rem; /* Slightly smaller icons */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer .social-icons a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+        .hero {
+            background-color: var(--secondary-color);
+            color: #333;
+        }
+        .hero-section {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust the height */
+    background-size: cover;
+    background-position: center;
+    animation: slideShow 15s infinite;
+}
+
+/* departments section */
+.department-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.department-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.525);
+    margin-top: 10px; /* Push card down to prevent overlap */
+
+
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Optional overlay */
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+    
+        /* About Section Styles */
+        .about-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        min-height: 100vh; /* Full viewport height */
+        padding: 10px; /* Add some padding */
+        position: relative; /* Required for stickers */
+        overflow: visible; /* Allow stickers to overflow */
+    }
+
+    /* Outer boundary for stickers */
+    .sticker-boundary {
+        position: absolute;
+        .btn-primary { 
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 10px; /* Adds a gap between buttons */
+}
+    }
+    .btn-primary { 
+            background-color: var(--secondary-color);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            margin-right: 20px;
+         }
+
+        .btn-primary:hover {
+            background-color: #89ac46;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+         }
+
+         /* about us container with stickers */
+         .about-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Full viewport height */
+
+        }
+        
+    /* About Section Styles */
+    .about-section {
+        text-align: center;
+        padding: 60px; /* Reduced padding */
+        max-width: 800px; /* Slightly reduced width */
+        background-color: #a2df8c;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 2; /* Bring the green box to the front */
+        transition: transform 0.8s ease-in-out; /* Smooth scaling transition */
+    }
+
+    /* Inner content container */
+    .about-content {
+        transition: transform 0.8s ease-in-out; /* Smooth transition for content */
+    }
+
+    /* Hover Effect for About Section */
+    .about-container:hover .about-section {
+        transform: scale(0.95); /* Slightly shrink the box */
+    }
+
+    /* Counteract scaling for inner content */
+    .about-container:hover .about-content {
+        transform: scale(1.0526); /* Scale up to counteract the box scaling */
+    }
+
+    .about-section .star-icon {
+        font-size: 2rem; /* Increased size of the star */
+        color: #ffd700; /* Gold color for the star */
+        margin-bottom: 20px; /* Increased margin */
+    }
+
+    .about-section h1 {
+        font-size: 2rem; /* Increased font size for "A LITTLE ABOUT US" */
+        margin-bottom: 30px; /* Increased margin */
+        color: #333;
+        text-transform: uppercase; /* Optional: Makes text uppercase */
+        letter-spacing: 2px; /* Adds spacing between letters */
+    }
+
+    .about-section p {
+        font-size: 1.2rem; /* Increased font size */
+        line-height: 1.8; /* Increased line height */
+        color: #555;
+        margin-bottom: 30px; /* Increased margin */
+    }
+
+    .about-section .quote {
+        font-style: italic;
+        margin-top: 30px; /* Increased margin */
+        color: #777;
+        font-size: 1rem; /* Increased font size */
+    }
+
+    /* Responsive Adjustments for About Section */
+    @media (max-width: 768px) {
+        .about-section {
+            max-width: 90%; /* Adjust for smaller screens */
+            padding: 30px; /* Adjust padding for smaller screens */
+        }
+
+        .about-section h1 {
+            font-size: 1.5rem; /* Adjust for smaller screens */
+        }
+
+        .about-section p {
+            font-size: 1rem; /* Adjust for smaller screens */
+        }
+
+        .about-section .quote {
+            font-size: 0.9rem; /* Adjust for smaller screens */
+        }
+    }
+
+    /* Stickers */
+    .sticker {
+        position: absolute;
+        font-size: 3rem; /* Bigger stickers */
+        opacity: 0;
+        transition: all 0.8s ease-in-out; /* Smoother transition */
+        z-index: 1; /* Stickers behind the green box */
+        top: 50%; /* Start from the center */
+        left: 50%; /* Start from the center */
+        transform: translate(-50%, -50%); /* Center the stickers */
+    }
+
+    /* Hover Effect */
+    .about-container:hover .sticker {
+        opacity: 1;
+        z-index: 1; /* Keep stickers behind the green box */
+    }
+
+    /* Sticker Positions */
+    .about-container:hover .sticker-1 { transform: translate(-50%, -50%) translate(400px, -200px); } /* Top Right */
+    .about-container:hover .sticker-2 { transform: translate(-50%, -50%) translate(-400px, -200px); } /* Top Left */
+    .about-container:hover .sticker-3 { transform: translate(-50%, -50%) translate(0, -300px); } /* Top Center */
+    .about-container:hover .sticker-4 { transform: translate(-50%, -50%) translate(400px, 200px); } /* Bottom Right */
+    .about-container:hover .sticker-5 { transform: translate(-50%, -50%) translate(-400px, 200px); } /* Bottom Left */
+    .about-container:hover .sticker-6 { transform: translate(-50%, -50%) translate(0, 300px); } /* Bottom Center */
+    .about-container:hover .sticker-7 { transform: translate(-50%, -50%) translate(300px, 0); } /* Right */
+    .about-container:hover .sticker-8 { transform: translate(-50%, -50%) translate(-300px, 0); } /* Left */
+    .about-container:hover .sticker-9 { transform: translate(-50%, -50%) translate(250px, -150px); } /* Top Right */
+    .about-container:hover .sticker-10 { transform: translate(-50%, -50%) translate(-250px, -150px); } /* Top Left */
+    .about-container:hover .sticker-11 { transform: translate(-50%, -50%) translate(250px, 150px); } /* Bottom Right */
+    .about-container:hover .sticker-12 { transform: translate(-50%, -50%) translate(-250px, 150px); } /* Bottom Left */
+    .about-container:hover .sticker-13 { transform: translate(-50%, -50%) translate(150px, -250px); } /* Top Right */
+    .about-container:hover .sticker-14 { transform: translate(-50%, -50%) translate(-150px, -250px); } /* Top Left */
+    .about-container:hover .sticker-15 { transform: translate(-50%, -50%) translate(150px, 250px); } /* Bottom Right */
+    .about-container:hover .sticker-16 { transform: translate(-50%, -50%) translate(-150px, 250px); } /* Bottom Left */
+    /* Additional Stickers for Empty Spaces */
+    .about-container:hover .sticker-17 { transform: translate(-50%, -50%) translate(600px, -100px); } /* Far Top Right */
+    .about-container:hover .sticker-18 { transform: translate(-50%, -50%) translate(-600px, -100px); } /* Far Top Left */
+    .about-container:hover .sticker-19 { transform: translate(-50%, -50%) translate(600px, 100px); } /* Far Bottom Right */
+    .about-container:hover .sticker-20 { transform: translate(-50%, -50%) translate(-600px, 100px); } /* Far Bottom Left */
+
+        /* Hide stickers on smaller screens */
+        @media (max-width: 768px) {
+            .sticker {
+                display: none; /* Hide stickers */
+            }
+        }
+        /* Flip Card Container */
+        .flip-card {
+            perspective: 1000px; /* Enable 3D perspective */
+            width: 100%;
+            height: 0;
+            padding-bottom: 140%; /* 5:7 aspect ratio (5 / 7 * 100%) */
+            position: relative;
+        }
+
+        /* Flip Card Inner Container */
+        .flip-card-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 1s; /* Flip animation duration */
+            transform-style: preserve-3d; /* Enable 3D transformations */
+        }
+
+        /* Flip Card Hover Effect */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg); /* Flip the card on hover */
+        }
+
+        /* Flip Card Front and Back */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hide the back side of the card */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Flip Card Front (Image) */
+        .flip-card-front {
+            background-color: var(--bg-light);
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the card */
+        }
+
+        /* Flip Card Back (Text) */
+        .flip-card-back {
+            background-color: var(--accent-color); /* Use secondary color */
+            color: rgb(19, 14, 14);
+            transform: rotateY(180deg); /* Initially hide the back side */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .flip-card-back h5 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: rgb(38, 33, 93);
+        }
+
+        .flip-card-back p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .flip-card-back .btn {
+            background-color: var(--secondary-color);
+            color: var(--bg-light);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .flip-card-back .btn:hover {
+            background-color: var(--accent-color); 
+            color: var(--bg-light);
+        }
+
+        /* Publications Section */
+        .publications-section {
+            background-color: white; /* Use light background color */
+            padding: 40px 0;
+        }
+
+        .flip-card-back .btn:hover {
+            background-color: #542cab;
+        }
+        .hero-section {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    .carousel-inner img {
+        min-height: 100vh;
+        object-fit: cover;
+    }
+    .carousel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(39, 38, 37, 0.196); /* Adjust opacity for better readability */
+    }
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 80%;
+    }
+    .carousel-caption h1, .carousel-caption p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(250, 241, 241);
+        text-shadow: 2px 2px rgb(203, 100, 100);
+    }
+    .carousel-caption a {
+        margin-top: 10px;
+    }
+    /* Container for the calander to make it responsive */
+.responsive-iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* This is the aspect ratio (9/16 = 0.5625) for 16:9 */
+}
+
+/* Style for the iframe */
+.responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+ /* Styling for sub-headings home page */
+.sub-headings {
+    font-size: 15px; /* Set heading size */
+    text-align: center;
+}
+
+.icon {
+    font-size: 20px; /* Adjust size */
+    color: #ff7f00; /* Orange color to match your theme */
+    display: block;
+    margin: 0 auto 5px auto;
+    text-align: center;
+}
+
+        /* contact us Modal Styling */
+        .modal-content {
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #ff7f00;
+            padding: 20px;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-body i {
+            font-size: 60px;
+            color: #ff7f00;
+            animation: pop 0.5s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+    <div class="container">
+        <!-- Brand Logo (Logo visible on all screens, heading changes on smaller screens) -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="home.html">
+            <img src="images/logobg.png" alt="Website Logo" width="50" height="50" class="me-2">
+            <span class="long-text" style="color: var(--secondary-color);">Aga Khan Youth and Sports Board Ali Jiwani</span>
+            <span class="short-text" style="color: var(--secondary-color);">AKYSB, Ali Jiwani</span>
+        </a>
+
+        <!-- Hamburger Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Dropdown for "What We Do" -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="whatWeDoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        What We Do
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="whatWeDoDropdown">
+                        <li><a class="dropdown-item" href="sports.html">Sports</a></li>
+                        <li><a class="dropdown-item" href="artsdep.html">Arts</a></li>
+                        <li><a class="dropdown-item" href="culturedep.html">Culture</a></li>
+                    </ul>
+                </li>
+
+                <!-- Link for "Our Projects" -->
+                <li class="nav-item"><a class="nav-link" href="projects.html">Our Projects</a></li>
+
+                <!-- Dropdown for "Support Us" -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="supportUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Support Us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="supportUsDropdown">
+                        <li><a class="dropdown-item" href="joinus.html">Join Our Family</a></li>
+                        <li><a class="dropdown-item" href="eventform.html">Host an Event</a></li>
+                        <li><a class="dropdown-item" href="donateus.html">Donate Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- carousel hero -->
+<section id="heroCarousel" class="carousel slide hero-section" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/photogallery/j6.jpg" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="images/photogallery/3.jpg" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="images/photogallery/Love love love.jpeg" class="d-block w-100" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+            <img src="images/photogallery/photogallery1.jpg" class="d-block w-100" alt="Slide 4">
+        </div>
+        <div class="carousel-item">
+            <img src="images/photogallery/j5.jpg" class="d-block w-100" alt="Slide 5">
+        </div>
+    </div>
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+        <h1 class="fw-bold">Inspiring Youth to Lead, Play, and Thrive in Their Community</h1>
+            <!-- Button Container -->
+    <div class="button-container">
+        <a href="home.html#about-container" class="btn btn-primary">Learn More </a>
+        <a href="home.html#contact-section" class="btn btn-primary">Get Involved</a>
+    </div>
+
+        </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</section>
+
+<!-- Container to center the .about-section -->
+<div class="about-container" id="about-container">
+    <!-- Outer boundary for stickers -->
+    <div class="sticker-boundary">
+        <!-- Stickers (Icons) -->
+        <div class="sticker sticker-1">🎨</div> <!-- Art -->
+        <div class="sticker sticker-2">🎭</div> <!-- Theater -->
+        <div class="sticker sticker-3">🎤</div> <!-- Music -->
+        <div class="sticker sticker-4">📚</div> <!-- Literature -->
+        <div class="sticker sticker-5">🎧</div> <!-- Music -->
+        <div class="sticker sticker-6">🎪</div> <!-- Circus -->
+        <div class="sticker sticker-7">🎬</div> <!-- Film -->
+        <div class="sticker sticker-8">🎼</div> <!-- Music -->
+        <div class="sticker sticker-9">🖌️</div> <!-- Painting -->
+        <div class="sticker sticker-10">🎮</div> <!-- Gaming -->
+        <div class="sticker sticker-11">⚽</div> <!-- Sports -->
+        <div class="sticker sticker-12">🏀</div> <!-- Sports -->
+        <div class="sticker sticker-13">🌻</div> <!-- Flowers -->
+        <div class="sticker sticker-14">🎬</div> <!-- Flowers -->
+        <div class="sticker sticker-15">🎼</div> <!-- Flowers -->
+        <div class="sticker sticker-16">🎨</div> <!-- Art -->
+        <div class="sticker sticker-17">🎲</div> <!-- Dice -->
+        <div class="sticker sticker-18">🎳</div> <!-- Bowling -->
+        <div class="sticker sticker-19">🎸</div> <!-- Football -->
+        <div class="sticker sticker-20">🏓</div> <!-- Ping Pong -->
+    </div>
+
+    <!-- Green box (about-section) -->
+    <div class="about-section" id="about-us">
+        <div class="about-content">
+            <!-- Star icon -->
+            <div class="star-icon">★</div>
+            <!-- Heading -->
+            <h1>A LITTLE ABOUT US</h1>
+            <!-- Description -->
+            <p>Engaging in sports and the arts fosters discipline, teamwork, and creativity—qualities that shape resilient individuals and strengthen communities. By participating, youth develop a sense of identity, belonging, and purpose, contributing to a more enlightened and harmonious society.</p>
+            <!-- Quote -->
+            <p class="quote">— Inspired by H.H. Prince Karim Aga Khan IV.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Departments Section -->
+<section class="container my-5">
+    <i class="fas fa-water water-icon icon"></i> <!-- Department Icon -->
+    <h2 class=" text-center sub-headings">3 STREAMS OF OUR RIVER </h2>
+    <div class="row justify-content-center">
+
+        <!-- Department 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card department-card h-100 border-0 shadow-sm">
+                <img src="images/departments/download (4).jpeg" alt="Education & Learning" class="card-img-top img-fluid">
+                <div class="card-body text-center">
+                    <h4 class="fw-bold text-primary">Sports</h4>
+                    <p class="card-text">"Encouraging teamwork, fitness, brotherhood and sportsmanship through various athletic events and training sessions."</p>
+                    <a href="sports.html" class="btn btn-outline-primary">Explore Sports</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card department-card h-100 border-0 shadow-sm">
+                <img src="images/departments/artsss.jpeg" alt="arts dep" class="card-img-top img-fluid">
+                <div class="card-body text-center">
+                    <h4 class="fw-bold text-danger">Arts</h4>
+                    <p class="card-text">"Fostering creativity, self-expression, and innovation through workshops, exhibitions, and hands-on art projects."</p>
+                    <a href="artsdep.html" class="btn btn-outline-danger">Explore Arts</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card department-card h-100 border-0 shadow-sm">
+                <img src="images/departments/ccculture.jpeg" alt="Research & Innovation" class="card-img-top img-fluid">
+                <div class="card-body text-center">
+                    <h4 class="fw-bold text-success">Culture</h4>
+                    <p class="card-text">"Celebrating heritage, diversity, and unity through cultural events, performances, and community gatherings." </p>
+                    <a href="culturedep.html" class="btn btn-outline-success">Explore Culture</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Publications Section -->
+    <section class="publications-section">
+        <div class="container">
+            <i class="fas fa-trophy trophy-icon icon"></i> <!-- Trophy Icon for Successful Events -->
+            <h2 class="text-center sub-headings">SUCCESSFUL EVENTS</h2>
+            <div class="row">
+                <!-- Roshanai Camp Card -->
+                <div class="col-md-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <!-- Front Side (Image) -->
+                            <div class="flip-card-front">
+                                <img src="images/wintercamp.PNG" alt="Roshanai Camp">
+                            </div>
+                            <!-- Back Side (Text) -->
+                            <div class="flip-card-back">
+                                <h5>Roshanai Winter Camp</h5>
+                                <p>A transformative winter camp experience for youth empowerment and learning.</p>
+                                <a href="projects.html" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volleyball Card -->
+                <div class="col-md-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <!-- Front Side (Image) -->
+                            <div class="flip-card-front">
+                                <img src="images/volleyball.png" alt="Volleyball">
+                            </div>
+                            <!-- Back Side (Text) -->
+                            <div class="flip-card-back">
+                                <h5>Volleyball and Throwball Tournament</h5>
+                                <p>Promoting sportsmanship and teamwork through volleyball activities.</p>
+                                <a href="projects.html" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Tennis Card -->
+                <div class="col-md-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <!-- Front Side (Image) -->
+                            <div class="flip-card-front">
+                                <img src="images/tabletenniss.png" alt="Table Tennis">
+                            </div>
+                            <!-- Back Side (Text) -->
+                            <div class="flip-card-back">
+                                <h5>Table Tennis Tournament </h5>
+                                <p>Encouraging youth engagement and skill-building through table tennis.</p>
+                                <a href="projects.html" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Newsletter Section -->
+<div class="text-center mb-9">
+    <i class="fas fa-envelope envelope-icon icon"></i> <!-- Newsletter Icon -->
+    <h2 class="sub-headings">SUBSCRIBE TO OUR NEWSLETTER</h2>
+</div>
+<section class="container my-2 p-4 bg-white shadow-sm rounded text-center">
+    <p>Stay updated with our latest events, news, and volunteer opportunities.</p>
+    <form class="d-flex justify-content-center" onsubmit="event.preventDefault(); showModal();">
+        <input type="email" class="form-control w-50 me-2" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</section>
+
+    <!-- Bootstrap Modal (Without OK Button) -->
+<div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="subscriptionModalLabel">Subscription Successful</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                Thank you for subscribing! You'll now receive updates on our latest events and news.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Script -->
+<script>
+    function showModal() {
+        var myModal = new bootstrap.Modal(document.getElementById('subscriptionModal'));
+        myModal.show();
+    }
+</script>
+
+
+<!-- Calendar Section -->
+<section class="container my-5 text-center">
+    <i class="fas fa-calendar-alt calander-icon icon"></i>
+    <h2 class="text-center sub-headings">UPCOMING EVENTS </h2>
+    <div class="responsive-iframe-container">
+        <iframe src="https://calendar.google.com/calendar/embed?src=your_dummy_calendar_url" style="border: 0" frameborder="0" scrolling="no"></iframe>
+    </div>
+</section>
+
+     <!-- Contact Section -->
+<section class="container my-5" id="contact-section">
+    <div class="text-center">
+        <i class="fas fa-phone-alt phone-icon icon"></i> <!-- Contact Icon -->
+        <h2 class="sub-headings mt-2">REACH OUT TO US </h2> <!-- Smaller Heading -->
+    </div>
+    <!-- Step 1: Add needs-validation and novalidate -->
+    <form class="mt-4 needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            <div class="invalid-feedback">Please enter your name.</div> <!-- Step 3: Add error message -->
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Feel free to ask about our space, project inquiries, and more!" required></textarea>
+            <div class="invalid-feedback">Please enter your message.</div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary w-50">Submit</button> <!-- Step 2: Button stays the same -->
+        </div>
+    </form>
+</section>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="fas fa-check-circle text-orange fs-1"></i>
+                <h4 class="mt-3 text-orange">Thank You!</h4>
+                <p>Your response has been recorded successfully.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Step 4: Bootstrap Form Validation Script -->
+<script>
+    (function () {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation'); // Select all forms with validation
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) { // Check if form is valid
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault(); // Prevent default form submission
+                    var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show(); // Show Bootstrap modal
+                    form.classList.remove('was-validated'); // Reset validation
+                    form.reset(); // Reset form fields
+                }
+                form.classList.add('was-validated'); // Apply validation classes
+            }, false);
+        });
+    })();
+</script>
+
+    <!-- Footer -->
+<footer class="footer text-center py-3">
+    <p class="mb-0">&copy; 2025 Aga Khan Youth and Sports Board Ali Jiwani. All Rights Reserved.</p>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/p/C_9kdywITxJ/?igsh=MWozcGR2OG11OWRoNw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</footer>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

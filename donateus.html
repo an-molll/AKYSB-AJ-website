@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AKYSB- Donate Us Form</title>
+    <link rel="icon" type="image/png" href="images/logobg.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<style>
+    :root {
+            --primary-color: #e3fdce;
+            --secondary-color: #f6710c;
+            --accent-color: #c5e884;
+            --text-color: #078A8;
+            --bg-light: #fff7f2;
+        }
+
+        .navbar {
+            background: var(--primary-color);
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+  
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+            background-color: var(--secondary-color) !important;
+            transform: scale(1.05) !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .dropdown-menu {
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            font-weight: bold;
+            color: var(--text-color);
+            padding: 8px 12px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dropdown-item:hover {
+            background: var(--accent-color);
+            color: black;
+        }
+
+        body {
+            padding-top: 40px; /* Adjust padding to avoid overlap with fixed navbar */
+        }
+
+        /* Hide the shortened heading by default */
+.navbar-brand .short-text {
+    display: none;
+}
+
+/* Shorten the heading on smaller screens */
+@media (max-width: 768px) {
+    .navbar-brand .long-text {
+        display: none; /* Hide the full heading */
+    }
+    .navbar-brand .short-text {
+        display: inline; /* Show the shortened heading */
+    }
+}
+
+        /* Make the hamburger menu smaller */
+        .navbar-toggler-icon {
+            transform: scale(0.7); /* Reduce the size of the hamburger icon */
+        }
+/* FOOTER STYLING */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 30px 0; /* Slightly reduced padding */
+    text-align: center;
+    font-size: 0.9rem; /* Slightly smaller font size */
+    width: 100%;
+}
+
+.footer p {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer p:hover {
+    color: var(--accent-color);
+}
+
+/* Social Icons */
+.footer .social-icons {
+    margin-top: 10px;
+}
+
+.footer .social-icons a {
+    color: white;
+    margin: 0 12px;
+    font-size: 1.3rem; /* Slightly smaller icons */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer .social-icons a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+   /* Form Styling */
+.join-container {
+    background: var(--primary-color);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.511);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    background:var(--bg-light);
+    border: none;
+    color: #333; /* Darker text color for better readability */
+    margin-bottom: 10px;
+}
+
+.form-control::placeholder {
+    color: black;
+}
+
+.form-control:focus {
+    background: rgb(255, 255, 255); /* Fully opaque background on focus */
+    box-shadow: none;
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: rgb(187, 238, 109);
+    transform: scale(1.05);
+}
+
+/* Add a background image to the entire page */
+body {
+    background-image: url('images/form5.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Fix the background while scrolling */
+    min-height: 100vh; /* Ensure the body covers the full viewport height */
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    padding-top: 40px; /* Adjust padding to avoid overlap with fixed navbar */
+}
+
+/* Overlay to improve readability */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(62, 47, 47, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place the overlay behind the content */
+}
+
+/* Ensure content is above the overlay */
+.container, .footer {
+    position: relative;
+    z-index: 1;
+}
+/* Disable Bootstrap's default validation styles */
+.form-control:invalid,
+.form-control.is-invalid {
+    border-color: inherit; /* Use the default border color */
+    background-image: none; /* Remove the red background icon */
+    padding-right: 0.75rem; /* Reset padding */
+}
+.join-container {
+    width: 100%; /* Adjust this value to control the width */
+    max-width: 500px; /* Optional: Set a maximum width */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Success Modal Styling */
+#successModal .modal-content {
+    background: var(--primary-color); /* Use the primary color */
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color); /* Add a border using the secondary color */
+}
+
+#successModal .modal-header {
+    border-bottom: none; /* Remove the default border */
+    padding: 1rem 1rem 0.5rem 1rem; /* Adjust padding */
+}
+
+#successModal .modal-body {
+    text-align: center;
+    padding: 1rem;
+}
+
+#successModal .modal-body i {
+    color: var(--secondary-color); /* Use the secondary color for the checkmark */
+    font-size: 3rem; /* Increase the size of the checkmark */
+}
+
+#successModal .modal-body h4 {
+    color: var(--secondary-color); /* Use the secondary color for the heading */
+    margin-top: 1rem;
+}
+
+#successModal .modal-body p {
+    color: var(--text-color); /* Use the text color for the message */
+    font-size: 1.1rem;
+}
+
+#successModal .btn-close {
+    filter: invert(1); /* Make the close button visible on the primary color background */
+}
+
+.form-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0.5px 0.5px rgb(130, 104, 104);            
+            color: var(--secondary-color);
+        }
+
+        .form-section p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+</style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="home.html">
+                <img src="images/logobg.png" alt="Website Logo" width="50" height="50" class="me-2">
+                <span class="long-text" style="color: var(--secondary-color);">Aga Khan Youth and Sports Board Ali Jiwani</span>
+                <span class="short-text" style="color: var(--secondary-color);">AKYSB, Ali Jiwani</span>
+            </a>
+
+            <!-- Hamburger Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Dropdown for "What We Do" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="whatWeDoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            What We Do
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="whatWeDoDropdown">
+                            <li><a class="dropdown-item" href="sports.html">Sports</a></li>
+                            <li><a class="dropdown-item" href="artsdep.html">Arts</a></li>
+                            <li><a class="dropdown-item" href="culturedep.html">Culture</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Link for "Our Projects" -->
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Our Projects</a></li>
+
+                    <!-- Dropdown for "Support Us" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="supportUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Support Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="supportUsDropdown">
+                            <li><a class="dropdown-item" href="joinus.html">Join Our Family</a></li>
+                            <li><a class="dropdown-item" href="eventform.html">Host an Event</a></li>
+                            <li><a class="dropdown-item" href="donateus.html">Donate Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+         <!-- Donate to Us Form Section -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="join-container form-section p-4 border rounded shadow-sm">
+                    <h2 class="mb-2 text-center">Donate to Us!</h2>
+                    <p class="text-center text-bold">Support our Youth & Sports Community. Make a donation today!</p>
+                    <form id="donateForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="donorName" placeholder="Donor Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <input 
+                                type="tel" 
+                                class="form-control" 
+                                id="phoneNumber" 
+                                placeholder="03XXXXXXXXX" 
+                                pattern="\03\d{9}" 
+                                title="Please enter a valid Pakistani phone number starting with 03 (e.g., 03001234567)" 
+                                required
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="donorAddress" 
+                                placeholder="Enter your full address" 
+                                required
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <input 
+                                type="number" 
+                                class="form-control" 
+                                id="donationAmount" 
+                                placeholder="Donation Amount (PKR)" 
+                                min="1" 
+                                title="Please enter a valid donation amount." 
+                                required
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control" id="department" required>
+                                <option value="" disabled selected>Select Department to donate to </option>
+                                <option value="sports">Sports</option>
+                                <option value="arts">Arts</option>
+                                <option value="culture">Culture</option>
+                                <option value="general">General Donation</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Donate Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-check-circle text-orange fs-1"></i>
+                    <h4 class="mt-3 text-orange">Thank You!</h4>
+                    <p>Your donation has been recorded. We will contact you shortly for further details. Thank you for your support!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-3">
+        <p class="mb-0">&copy; 2025 Aga Khan Youth and Sports Board Ali Jiwani. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/p/C_9kdywITxJ/?igsh=MWozcGR2OG11OWRoNw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <!-- Load Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Form Submission Script -->
+    <script>
+        document.getElementById('donateForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Check if all required fields are filled
+            const form = this;
+            const allFieldsValid = Array.from(form.elements).every(element => {
+                if (element.required) {
+                    return element.value.trim() !== '';
+                }
+                return true;
+            });
+
+            if (allFieldsValid) {
+                // Show the success modal
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+
+                // Reset the form
+                form.reset();
+            } else {
+                // Optionally, you can add custom logic here if needed
+                console.log('Please fill out all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
